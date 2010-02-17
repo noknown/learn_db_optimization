@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<wicket:head>
+<style type="text/css">
+        TABLE { border: 2px solid black; border-collapse:collapse;}
+        TH { border:1px solid black; background-color:palegreen}
+        TD { border:1px solid black }
+</style>
+</wicket:head>
+<title>Insert title here</title>
+</head>
+<body>
+<wicket:panel>
+	<div wicket:id="plist" style="border: solid 1px;">
+		<span> レスポンスタイム </span>
+		<span wicket:id="responsetime" style=""></span><br/><br/>
+		
+		<table>
+			<tr>
+				<th width="85px">ID</th>
+				<th width="85px"> ステップ </th>
+				<th width="85px"> 処理テーブル </th>
+				<th width="85px"> 処理レコード </th>
+				<th width="85px"> 処理バイト数 </th>
+				<th width="85px"> 実行計画のコスト </th>
+				<th width="85px"> 時間 </th>
+			</tr>
+			<tr wicket:id="planlist">
+				<td wicket:id="id" align="right">1</td>
+				<td wicket:id="operation" align="right">1</td>
+				<td wicket:id="name" align="right">1</td>
+				<td wicket:id="rowsn" align="right">1</td>
+				<td wicket:id="bytes" align="right">1</td>
+				<td wicket:id="cost" align="right">1</td>
+				<td wicket:id="time" align="right">1</td>
+			</tr>
+		</table>
+		<br/>
+		<table>
+			<tr><th align="right">recursive calls</th>
+			<td wicket:id="recursive" align="right" width="80px">1</td></tr>
+			<tr><th align="right">db block gets</th>
+			<td wicket:id="db_block" align="right">1</td></tr>
+			<tr><th align="right">consistent gets</th>
+			<td wicket:id="consistent" align="right">1</td></tr>
+			<tr><th align="right">physical reads</th>
+			<td wicket:id="physical" align="right">1</td></tr>
+			<tr><th align="right">redo size</th>
+			<td wicket:id="redo" align="right">1</td></tr>
+			<tr><th align="right">bytes sent via SQL*Net to client</th>
+			<td wicket:id="bytes_sent" align="right">1</td></tr>
+			<tr><th align="right">bytes received via SQL*Net from client</th>
+			<td  wicket:id="bytes_received" align="right">1</td></tr>
+			<tr><th align="right">SQL*Net roundtrips to/from client</th>
+			<td wicket:id="sqlnet" align="right">1</td></tr>
+			<tr><th align="right">sorts(memory)</th>
+			<td wicket:id="sortsmemory" align="right">1</td></tr>
+			<tr><th align="right">sorts(disk)</th>
+			<td wicket:id="sortsdisk" align="right">1</td></tr>
+			<tr><th align="right">rows processed</th>
+			<td  wicket:id="rows" align="right">1</td></tr>
+		</table>
+		
+	</div>
+</wicket:panel>
+</body>
+</html>

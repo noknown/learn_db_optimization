@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	a.tab {
+		height: 35px;
+		width: auto;
+		border: 1px solid gray;
+	}
+	span.tabs {
+		line-height: 35px;
+		text-align: center;
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="right"><a href="#" wicket:id="toppage"> トップページへ戻る </a></div>
+	<div align="right"><a href="#" wicket:id="behavior"> SQL入力フォーム </a></div>
+	<hr/>
+	<form wicket:id="form">
+		<div wicket:id="cont">
+			<span class="tabs" wicket:id="tabs">
+				<a class="tab" wicket:id="link"><span wicket:id="label">label1</span></a>
+			</span>
+			<div wicket:id="text">
+				<div wicket:id="sqlinput"></div>
+			</div>
+		</div>
+		<input wicket:id="button" type="submit" />
+	</form>
+	<div wicket:id="response"></div>
+</body>
+</html>

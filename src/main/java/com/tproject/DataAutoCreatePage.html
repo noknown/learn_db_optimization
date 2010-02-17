@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Create Data Automation</title>
+<style> 
+        TABLE { border: 1px solid black;  width:70%}
+        TH { border:1px solid black; background-color:green}
+        TD { border:1px solid black }
+        .T{border:1px solid white}        
+</style>
+</head>
+<body>
+<h1>Create Data Automation</h1>
+<div align="right"><a href="#" wicket:id="top"> Topページへ </a></div>
+<hr/>
+	<font color="red"><div wicket:id="feedback">error</div></font>
+	<form wicket:id="tablechoiceForm">
+	
+		<table align="center">
+			<tr>
+				<td align="left" width="25%">&nbsp;&nbsp;&nbsp;<b>Table Name</b></td>
+				<td class="T" align="left">
+					<select wicket:id="tablenamechoice" >
+						<option value="test"></option>
+					</select>
+					
+				</td>
+				<td class="T" align="center">
+					<font color="red"><span wicket:id="selectedName"> テーブルネーム </span></font>
+				</td>
+			</tr>
+		</table>
+		<table align="center">
+			<tr>
+				<td align="center" width="70%"><b>Column List</b></td>
+				<td class="T" width="10%"><input type="submit" wicket:id="deleteButton" value="Delete All Data"/></td>
+			</tr>
+		</table>
+		<div wicket:id="group">
+			<span wicket:id ="columnview">
+			<table align="center">
+				<tr>
+					<td align="left" width="25%">&nbsp;&nbsp;&nbsp;<input type="radio" wicket:id="radio"/><span wicket:id="columnname"></span></td>
+					<td align="center"><font color="red"><span wicket:id="nullable"></span></font></td>
+					<td align="center" width="25%">DATA TYPE&nbsp;&nbsp;&nbsp;<font color="red"><span wicket:id="datatype"></span></font></td>
+				</tr>				
+			</table>
+			<span wicket:id="datatypeselectionPanel"></span>
+			</span>
+		</div>
+		
+		<br/>
+
+		<table align="center">
+			<tr>
+				<td width="30%">&nbsp;&nbsp;&nbsp;<b>Number of data generated</b></td>
+				<td align="center" colspan="3" class="T">
+					<input type="text" wicket:id="dataF" />&nbsp;(1～10000)&nbsp;
+					<input type="submit" wicket:id="intgerButton" value="Create Start"/>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		
+		<div align="center"><b>Create Data View</b></div>
+		<div align="center">
+			<textarea wicket:id="insertText" cols="100" rows="15" wrap="soft" readonly></textarea>
+		</div>
+		
+		<br/>
+		<div align="center">
+			<input type="submit" wicket:id="commit" value="&nbsp;&nbsp;&nbsp;C O M M I T&nbsp;&nbsp;&nbsp;"/>
+		</div>
+	</form>
+	
+	
+</body>
+</html>

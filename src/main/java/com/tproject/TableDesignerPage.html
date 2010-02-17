@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+		<style type="text/css">
+		.target {
+			border: 1px solid gray;
+		}
+		.ctarget {
+			border: 1px solid gray;
+			margin: 2px;
+			font-size: 90%;
+		}
+		#paint {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		canvas {
+			position: absolute;
+		}
+		
+		</style>
+</head>
+<script type="text/javascript">
+//<![CDATA[
+
+	$(function() {
+	
+		setInterval(myfunc, 1000);
+		
+	});
+
+
+	function myfunc() {
+
+		// drawlineをした時にcanvasが生成される。
+		$("#paint").drawLine(0, 30, 220, 30);
+
+		var offsettop = 49;
+		var offsetleft = 6;
+
+		var canvas = document.getElementsByTagName("canvas");
+		var context = canvas[0].getContext("2d");
+		context.clearRect(0, 0, 100000, 100000);
+
+		var primarys = new Object();
+		var index = 0;
+		var regexp = /primary[0-9]+/;
+		var regexf = /foreign[0-9]+/;
+		var number = /[0-9]+/;
+		$("div[class*='primary']").each(function() {
+			var pri = $(this).attr("class");
+
+			if(regexp.test(pri)) {
+				var cl = regexp.exec(pri);
+				primarys[number.exec(cl)] = $(this);
+			}
+		});
+
+		$("div[class*='foreign']").each(function() {
+			var fore = $(this).attr("class");
+			var comp;
+
+			if(regexf.test(fore)) {
+				var cl = regexf.exec(fore);
+				comp = primarys[number.exec(cl)];
+				
+				var offsfore = $(this).offset();
+				var offsprim = comp.offset();
+
+				var forewidth = $(this).width();
+				var primwidth = comp.width();
+					
+				if(offsfore.left > offsprim.left && (offsfore.left - forewidth - 30) > offsprim.left) {
+					var xs = offsprim.left+comp.width()-offsetleft;
+					var xe = offsfore.left-offsetleft;
+					var ys = offsprim.top+(comp.height() / 2)-offsettop;
+					var ye = offsfore.top+($(this).height() / 2)-offsettop;
+						
+					var xpoint = new Array(xs, (xs+xe)/2, (xs+xe)/2, xe);
+					var ypoint = new Array(ys, ys, ye, ye);
+					$("#paint").drawPolyline(xpoint, ypoint);
+					// 多側のカーディナリティ
+					$("#paint").drawLine(xe - 10, ye, xe, ye + 8);
+					$("#paint").drawLine(xe - 10, ye, xe, ye - 8);
+					// １側のカーディナリティ
+					$("#paint").drawLine(xs + 10, ys + 8, xs + 10, ys - 8);
+				} else if(offsfore.left < offsprim.left && (offsprim.left - primwidth - 30) > offsfore.left) {
+					var xs = offsfore.left+$(this).width()-offsetleft;
+					var xe = offsprim.left-offsetleft;
+					var ys = offsfore.top+($(this).height() / 2)-offsettop;
+					var ye = offsprim.top+($(this).height() / 2)-offsettop;
+						
+					var xpoint = new Array(xs, (xs+xe)/2, (xs+xe)/2, xe);
+					var ypoint = new Array(ys, ys, ye, ye);
+					$("#paint").drawPolyline(xpoint, ypoint);
+					// 多側のカーディナリティ
+					$("#paint").drawLine(xs + 10, ys, xs, ys + 8);
+					$("#paint").drawLine(xs + 10, ys, xs, ys - 8);
+					// １側のカーディナリティ
+					$("#paint").drawLine(xe - 10, ye + 8, xe - 10, ye - 8);
+				} else if(offsfore.left > offsprim.left && (offsfore.left - forewidth - 30) <= offsprim.left) {
+					var xs = offsprim.left+comp.width()-offsetleft;
+					var xe = offsfore.left-offsetleft;
+					var ys = offsprim.top+(comp.height() / 2)-offsettop;
+					var ye = offsfore.top+($(this).height() / 2)-offsettop;
+						
+					var xpoint = new Array(xs, xs+20, xs+20, xe-20, xe-20, xe);
+					var ypoint = new Array(ys, ys, (ys+ye)/2, (ys+ye)/2, ye, ye);
+					$("#paint").drawPolyline(xpoint, ypoint);
+					// 多側のカーディナリティ
+					$("#paint").drawLine(xe - 10, ye, xe, ye + 8);
+					$("#paint").drawLine(xe - 10, ye, xe, ye - 8);
+					// １側のカーディナリティ
+					$("#paint").drawLine(xs + 10, ys + 8, xs + 10, ys - 8);
+					
+				} else if(offsfore.left <= offsprim.left && (offsprim.left - primwidth - 30) <= offsfore.left) {
+					var xs = offsfore.left+$(this).width()-offsetleft;
+					var xe = offsprim.left-offsetleft;
+					var ys = offsfore.top+($(this).height() / 2)-offsettop;
+					var ye = offsprim.top+($(this).height() / 2)-offsettop;
+						
+					var xpoint = new Array(xs, xs+20, xs+20, xe-20, xe-20, xe);
+					var ypoint = new Array(ys, ys, (ys+ye)/2, (ys+ye)/2, ye, ye);
+					$("#paint").drawPolyline(xpoint, ypoint);
+					// 多側のカーディナリティ
+					$("#paint").drawLine(xs + 10, ys, xs, ys + 8);
+					$("#paint").drawLine(xs + 10, ys, xs, ys - 8);
+					// １側のカーディナリティ
+					$("#paint").drawLine(xe - 10, ye + 8, xe - 10, ye - 8);
+				}
+			}
+
+		});
+
+	}
+
+//]]>
+</script>
+<body>
+<form wicket:id="form">
+	<input type="button" wicket:id="addtable" value=" 追加 " />
+	<input type="submit" value=" 変更をDBに適用 " />
+	<input type="checkbox" wicket:id="copycheck" id="copycheck"><label for="copycheck"> コピー </label>
+	<span>　　　　　　　　　　　　　　　　　</span>
+	<span><a href="#" wicket:id="toppage"> トップページへ戻る </a></span><hr/>
+</form>
+<div id="paint"></div>
+<div style="position: relative;" wicket:id="tableview">
+	<div wicket:id="tables">
+		<div wicket:id="cont" class="target" style="width:250px;">
+		<span class="dragtable" style="background-color: skyblue; color: skyblue;">　　</span>
+		<b><span wicket:id="name">tablename</span></b>
+		<a wicket:id="create"> 追加 </a>
+		<a wicket:id="delete"> 削除 </a>
+		<div wicket:id="sorted" class="sorted">
+			<div wicket:id="table" class="ctarget">
+				<span wicket:id="sort" class="draggable" style="background-color: skyblue; color: skyblue;">　　</span>
+				<span wicket:id="col">columnname</span>
+				<a wicket:id="edit"> 編集 </a>
+				<a wicket:id="del"> 削除 </a><br/>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div wicket:id="modal"></div>
+<span wicket:id="non"></span>
+</body>
+</html>

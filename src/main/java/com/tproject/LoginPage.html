@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LoginPage</title>
+</head>
+<body>
+<h1>Login Page</h1>
+
+<span wicket:id="feedback"> エラー表示部 </span>
+<fieldset wigth="100">
+			<legend> ログイン </legend>
+<form wicket:id="loginForm">
+	<table align="center">
+		<tr>
+			<td align="left"> ユーザーネーム: </td>
+			<td><input wicket:id="userName" type="text" size="48"/></td>
+		</tr>
+		<tr>
+			<td align="left"> パスワード: </td>
+			<td><input wicket:id="password" type="password" size="50"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="submit" name="submit" value=" ログイン "/>
+				<input type="reset" value=" リセット "/>
+			</td>
+		</tr>
+	</table>
+</form>
+</fieldset>
+<br/><br/>
+<div align="center">
+	<wicket:link><a href="RegisterPage.html"> ユーザー登録ページへ </a></wicket:link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<wicket:link><a href="SQLBehaviorConfirmPage.html"> SQL入力フォームページへ </a></wicket:link>
+</div>
+
+</body>
+</html>

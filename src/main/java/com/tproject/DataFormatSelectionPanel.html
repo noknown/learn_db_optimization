@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<style> 
+       .T{border:1px solid white}        
+</style>
+</head>
+<body>
+	<table>
+		<tr wicket:id="dataList">
+			<td wicket:id="dataselectionPanel">
+			<wicket:panel>
+				<form wicket:id="dataformatForm">
+				<table align="center" border="5" bordercolor="#ff0000">
+					<tr>
+						<td class="T" align="left" width="12%">
+							Random :
+						</td>
+						<td  class="T" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="submit" wicket:id="upper" value="&nbsp;&nbsp;&nbsp;&nbsp;[A-Z]&nbsp;&nbsp;&nbsp;&nbsp;"/>
+							<input type="submit" wicket:id="lower" value="&nbsp;&nbsp;&nbsp;&nbsp;[a-z]&nbsp;&nbsp;&nbsp;&nbsp;"/>
+							<input type="submit" wicket:id="figure" value="&nbsp;&nbsp;&nbsp;&nbsp;[0-9]&nbsp;&nbsp;&nbsp;&nbsp;"/>
+							<input type="submit" wicket:id="upperlower" value="&nbsp;[A-Z/a-z]&nbsp;"/>
+							<input type="submit" wicket:id="upperfigure" value="&nbsp;[A-Z/0-9]&nbsp;"/>
+							<input type="submit" wicket:id="lowerfigure" value="&nbsp;[a-z/0-9]&nbsp;"/>
+							<input type="submit" wicket:id="allcase" value="[A-Z/a-z/0-9]"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="T" align="left" width="12%">
+							Range of User :
+						</td>
+						<td class="T" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="submit" wicket:id="Assignment" value="Assignment"/>
+							<input type="submit" wicket:id="Repeat" value="&nbsp;Repeat&nbsp;"/>						
+							<input type="submit" wicket:id="Rangeofcharacters" value="Range of characters"/>
+							<input type="submit" wicket:id="Rangeofnumbers" value="Range of numbers"/>
+							<input type="submit" wicket:id="Directlyspecified" value="Directly specified"/><br/>
+						</td>
+					</tr>
+					<tr align="center">
+						<td class="T" ColSpan="2">
+							<span wicket:id="assignmentL"></span>
+							<input type="text" wicket:id="assignment" size="10"/>
+							<span wicket:id="assignmentR"></span>
+							<span wicket:id="rangeCL"></span>
+							<input type="text" wicket:id="rangeC1" size="1"/>
+							<span wicket:id="rangeC_1"></span>
+							<input type="text" wicket:id="rangeC2" size="1"/>
+							<span wicket:id="rangeC1L"></span>
+							<input type="text" wicket:id="rangeC3" size="1"/>
+							<span wicket:id="rangeC_2"></span>
+							<input type="text" wicket:id="rangeC4" size="1"/>
+							<span wicket:id="rangeC2L"></span>
+							<input type="text" wicket:id="rangeC5" size="1"/>
+							<span wicket:id="rangeC_3"></span>		
+							<input type="text" wicket:id="rangeC6" size="1"/>
+							<span wicket:id="rangeCR"></span>
+							<span wicket:id="repeatL"></span>
+							<input type="text" wicket:id="repeat" size="2"/>
+							<span wicket:id="repeatR"></span>
+							<span wicket:id="rangeNL"></span>
+							<input type="text" wicket:id="rangeN1" size="1"/>
+							<span wicket:id="rangeN_1"></span>
+							<input type="text" wicket:id="rangeN2" size="1"/>
+							<span wicket:id="rangeNR"></span>
+							<span wicket:id="directL"></span>
+							<input type="text" wicket:id="direct" size="1"/>
+							<input type="text" wicket:id="directnumber" size="1"/>
+							<span wicket:id="directR"></span>
+						</td>											
+					</tr>					
+					<tr>
+						<td class="T" align="center" ColSpan="2">
+							<input type="submit" wicket:id="CDelete" value="Delete 1 Character "/>
+							<input type="submit" wicket:id="ADelete" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="T" align="center" ColSpan="2">
+							<textarea wicket:id="textarea" cols=80% rows="2" wrap="soft" readonly></textarea>
+						</td>
+					</tr>
+					
+				</table>					
+				</form>
+				<div>
+					<span align="center" wicket:id="feedback">error</span>
+				</div>
+			</wicket:panel>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

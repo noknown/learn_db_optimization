@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TopPage</title>
+ 	<style> 
+        TABLE { border: 2px solid black; border-collapse:collapse; width:100% }
+        TH { border:1px solid black; background-color:green}
+        TD { border:1px solid black }
+    </style>
+</head>
+<body>
+	<h1>TopPage</h1>
+	<div align="right"><a><em><span wicket:id="admin" align="center">Admin message here</span></em></a>
+	<a href="#" wicket:id="logout"> ログアウト </a></div><hr/>
+	<form wicket:id="myForm">
+	<table wicket:id="viewContainer">
+		
+		<thead>
+			<tr>
+				<th>N0.</th>
+				<th ColSpan="2"> データベースネーム </th>
+				<th> 作成日 </th>
+				<th> 更新日 </th>
+				<th> 編集 </th>
+			</tr>		
+		</thead>
+		
+		<tbody wicket:id="datacheck">			
+			<tr wicket:id="list">		 	
+				<th wicket:id="index"></th>
+				<td>&nbsp;&nbsp;<input type="checkbox" wicket:id="check"/>&nbsp;&nbsp;<span wicket:id="databaseName"></span></td>	
+				<td align="center"><button wicket:id="rename">rename</button></td>
+				<td wicket:id="createDate" align="center"></td>
+				<td wicket:id="updateDate" align="center"></td>
+				<td align="center">
+   					<button wicket:id="delete"> 削　除 </button>
+  					<button wicket:id="copy"> コピー </button>
+  					<button href="#" wicket:id="edit"> 編　集 </button>
+  					<button href="#" wicket:id="createData"> データ自動生成 </button>
+				</td>      
+			</tr>			
+		</tbody>
+			<tr>	
+				<td wicket:id="navi" ColSpan="6" align="center"></td>	
+			</tr>		
+	</table><br/>
+	
+	<div align="center">
+		<button href="#" wicket:id="response"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;応答&nbsp;確認&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button href="#" wicket:id="SQLBehaviorConfirmPage"> SQL入力フォーム </button>
+	</div>
+	<div wicket:id="modal"></div>
+			
+		<fieldset>
+			<legend> 新規入力 </legend>
+			データベース名 <input type="text" wicket:id="databaseName" size="50"/>  
+			<input type="submit" value=" 追加 " wicket:id="addLocale"/>     
+		</fieldset>    
+	</form>  
+	<div wicket:id="feedback">error</div>
+</body>
+</html>
+
+
+ 

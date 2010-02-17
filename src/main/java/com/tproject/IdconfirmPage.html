@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title> ID確認ページ </title>
+</head>
+<body>
+<h1>&nbsp;&nbsp; ID　確認 </h1>
+	<div align="center"> ユーザーネームを入力してください。 </div>
+	<form wicket:id="idForm" method="post">		
+		<div align="center">
+			<input type="text" size="32" wicket:id="username" />
+			<input type="submit" wicket:id="idButton" value=" 送信 " /><br/>
+		</div>
+		<div align="center" wicket:id="infoMessage"></div>
+		<div align="center"><input type="submit" wicket:id="okButton" value=" 確認 " /></div>
+	</form>
+<span wicket:id="feedback"></span>
+<br/>
+</body>
+</html>

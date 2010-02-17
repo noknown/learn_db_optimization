@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>User-registration</title>
+</head>
+<body>
+<h1>User Registration</h1>
+<div wicket:id="feedback">error</div>
+
+	
+<form wicket:id="testForm" method="post">
+	<table>
+		<tr>
+			<td align="left"> ユーザーネーム </td>
+			<td><input type="text" size="30" wicket:id="User_name"/></td>
+			<td><Button wicket:id="duplication" >ID 確認 </Button></td>
+		</tr>
+		<tr>
+			<td align="left"> パスワード </td>
+			<td><input type="password" size="32" wicket:id="Password"/></td>
+		</tr>
+		<tr>
+			<td align="left"> 確認用パスワード </td>
+			<td><input type="password" size="32" wicket:id="Comp_Password"/></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="   確　　認   "/></td>
+		</tr>
+	</table>
+</form>
+<div wicket:id="modal"></div>
+</body>
+</html>

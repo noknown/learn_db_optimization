@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div wicket:id="feedback"></div>
+
+	<form wicket:id="form">
+			
+		<span> カラム名 </span><input type="text" wicket:id="name" /><br/>
+		<span> データ型 </span><select wicket:id="type">
+			<option></option>
+		</select><br/>
+		<span> データ長 </span>
+		<input type="text" wicket:id="leng" /><br/>
+		<span> スケール </span>
+		<input type="text" wicket:id="pleng" /><br/>
+		<input type="checkbox" wicket:id="primary" id="primary"/><label for="primary"> 主キー制約 </label><br/>
+		<input type="checkbox" wicket:id="unique" id="unique"/><label for="unique"> 一意制約 </label><br/>
+		<input type="checkbox" wicket:id="notnull" id="notnull"/><label for="notnull"> NotNull制約 </label><br/>
+		
+		<label for="check"> チェック制約 </label><br/>
+		<div wicket:id="check" id="check"></div><br/>
+		
+		<label for="defaults"> デフォルト値 </label><br/>
+		<div wicket:id="defaults" id="defaults"></div><br/>
+		
+		<label for="index"> インデックス </label><br/>
+		<div wicket:id="index" id="index"></div><br/>
+		
+		<label for="foreign"> 外部キー制約 </label>
+		<div wicket:id="foreign" id="foreign"></div>
+		
+		<input type="submit" wicket:id="submit"/>
+	</form>
+</body>
+</html>
